@@ -1,11 +1,11 @@
 
 const style = document.createElement('style');
 style.innerHTML = `
-u1-typewriter .-Char {
+u1-typewriter .-Symbol {
     position:relative;
 }
-u1-typewriter .-Char   > span { opacity: 0; }
-u1-typewriter .-Active > span { opacity: 1; }
+u1-typewriter .-Char { opacity: 0; }
+u1-typewriter .-Active .-Char { opacity: 1; }
 u1-typewriter .-Caret {
     position:absolute;
     animation: u1-typewriter-caret-ani .5s infinite alternate;
@@ -53,16 +53,18 @@ class Typewriter extends HTMLElement {
 
     play() {
         this.pause();
+        const speed = getComputedStyle(this).getPropertyValue('--u1-typewriter-speed') || 60;
         this.playInterval = setTimeout(() => {
             this.play();
-        }, 150);
+        }, speed);
         if (this.next() === false) {
             this.pause();
+            this.dispatchEvent(new CustomEvent('u1-typewriter-end', {bubbles:true}));
             if (this.hasAttribute('loop')) {
                 setTimeout(() => {
                     this.reset();
                     this.play();
-                }, 2000);
+                }, speed*12 + 1500);
             }
         }
     }
@@ -72,13 +74,15 @@ class Typewriter extends HTMLElement {
     next() {
         this.activeChar.classList.add('-Active');
         let next = findNextChar(this, this.activeChar);
-        if (!next) return false;
+        if (!next) {
+            return false;
+        }
         next.append(this.caretElement)
-        this.activeChar = next;
+        return this.activeChar = next;
     }
     reset(){
         this.pause();
-        this.querySelectorAll('.-Char').forEach(char => char.classList.remove('-Active'));
+        this.querySelectorAll('.-Symbol').forEach(char => char.classList.remove('-Active'));
         let next = findNextChar(this, this);
         this.activeChar = next;
         next.append(this.caretElement)
@@ -91,7 +95,7 @@ customElements.define('u1-typewriter', Typewriter);
 // find the next Char in children or a sibling of the node but not outside the root
 function findNextChar(root, node) {
     let next = null;
-    if (node.classList.contains('-Char')) {
+    if (node.classList.contains('-Symbol')) {
         next = node.nextElementSibling;
     } else {
         next = node.firstElementChild || node.nextElementSibling;
@@ -107,7 +111,7 @@ function findNextChar(root, node) {
     }
     if (!next) return null;
 
-    if (next.classList.contains('-Char')) {
+    if (next.classList.contains('-Symbol')) {
         return next;
     } else {
         return findNextChar(root, next);
@@ -123,8 +127,8 @@ function separateChars(parent) {
             str = str.replace(/\s+/g, ' ');
             for (let char of str) {
                 let span = document.createElement('span');
-                span.classList.add('-Char');
-                span.innerHTML = '<span>'+char+'</span>';
+                span.classList.add('-Symbol');
+                span.innerHTML = '<span class=-Char>'+char+'</span>';
                 node.parentNode.insertBefore(span, node);
             }
             node.remove();

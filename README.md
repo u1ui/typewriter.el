@@ -17,13 +17,13 @@ loop: restarts if at end
 - element.play()
 - element.pause()
 - element.reset()
+- event "u1-typewriter-end"
 
 # CSS
 There is no default CSS that interferes with your styles.
 
 ```css
-u1-typewriter .-Char { ... }
-u1-typewriter .-Char > span { ... } /* the char itself */
-u1-typewriter .-Active > span { ... } /* the active char */
+u1-typewriter .-Char { ... } /* the char */
+u1-typewriter .-Active .-Char { ... } /* the active char */
 u1-typewriter .-Caret { ... } /* the caret (It moves and is in the active char element) */
 ```

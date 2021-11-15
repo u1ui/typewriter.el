@@ -19,7 +19,7 @@
 
 </head>
 
-<body>
+<body style="display:block">
 
     <header>
         <h1>u1-typewriter</h1>
@@ -29,14 +29,10 @@
         <h2>Test Simple text (attribute autoplay, loop)</h2>
         <u1-typewriter autoplay loop>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</u1-typewriter>
 
-        <h2>Test formated Text</h2>
-        <u1-typewriter autoplay loop>
-                Lorem <b>ips<i>um</i></b> dolor<br> sit <i>amet</i>, consectetur <a href="#">adipiscing</a> elit.
-        </u1-typewriter>
-
         <h2>Attribute autoplay</h2>
         <p>start / stops when visible / hidden</p>
-        <div style="overflow:auto; height:100px; padding-top:100px">
+        <div style="overflow:auto; height:100px;">
+            <div style="margin-bottom:100px">scroll down!</div>
             <u1-typewriter autoplay loop>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</u1-typewriter>
         </div>
 
@@ -46,6 +42,40 @@
         <button onclick="tw1.reset()">reset()</button>
         <br>
         <u1-typewriter id=tw1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</u1-typewriter>
+        <script>
+            tw1.addEventListener('u1-typewriter-end', () => {
+                alert('event "u1-typewriter-end" fired');
+            });
+        </script>
 
+        <h2>Test formated Text and CSS</h2>
+        style.setProperty('--u1-typewriter-speed', this.value): <input value=30 type=range onchange="tw2.style.setProperty('--u1-typewriter-speed', this.value)" min=10 max=500>
+        <br>
+        <u1-typewriter autoplay loop id=tw2 style="--u1-typewriter-speed:30">
+            Non visible chars on this pre-element are display:none
+            <pre style="overflow:visible">Lorem <b>ips<i>um</i></b> dolor<br>sit <i>amet</i>, consectetur <a href="#">adipiscing</a></pre>
+            The end.
+        </u1-typewriter>
+        <style contenteditable style="display:block">
+#tw2 {
+    display:block;
+    margin:2rem 0;
+    text-align: center;
+}
+#tw2 pre :not(.-Active) > .-Char {
+    display:none;
+}
+#tw2 .-Char {
+    display:inline-block;
+    min-width:.3rem;
+    transition:transform .4s;
+}
+#tw2 .-Symbol:not(.-Active) .-Char {
+    transform:scale(1.4);
+}
+#tw2 .-Symbol .-Caret {
+    color:hotpink;
+}
+        </style>
 
     </section>
