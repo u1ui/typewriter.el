@@ -20,7 +20,7 @@ Easy to use typewriter element.
 - event "u1-typewriter-end"
 
 # CSS
-There is no default CSS that interferes with your styles.
+There no default CSS that will affect your styles.
 
 ```css
 u1-typewriter .-Char { ... } /* the char */
