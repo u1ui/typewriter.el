@@ -10,8 +10,8 @@ Easy to use typewriter element.
 ```
 
 # attributes
-autostart: starts if in viewport, stops if out of viewport  
-loop: restarts if at end
+- `autostart`: starts if in viewport, stops if out of viewport  
+- `loop`: restarts if at end
 
 # api
 - element.play()
