@@ -9,12 +9,12 @@ u1-typewriter .-Active > span { opacity: 1; }
 u1-typewriter .-Caret {
     position:absolute;
     animation: u1-typewriter-caret-ani .5s infinite alternate;
-    height:1rem;
+    height:1em;
     width:2px;
     margin:auto;
-    top:-.2rem;
-    bottom:-.2rem;
-    left: .1rem;
+    top:-.2em;
+    bottom:-.2em;
+    left: .1em;
     background:currentColor;
 }
 @keyframes u1-typewriter-caret-ani {
