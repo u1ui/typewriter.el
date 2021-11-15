@@ -5,7 +5,7 @@ Easy to use typewriter element.
 
 ```html
 <u1-typewriter autostart loop>
-    Write <i>like</i> a <u>typewriter</u>
+    Even <i>HTML</i> <u>content</u>
 </u1-typewriter>
 ```
 
