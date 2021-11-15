@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head lang=en>
+    <meta charset="utf-8">
+    <meta name=viewport content="width=device-width">
+
+    <link rel=stylesheet href="https://cdn.jsdelivr.net/gh/u1ui/base.css/full.css">
+    <link rel=stylesheet href="https://cdn.jsdelivr.net/gh/u1ui/classless.css/variables.min.css">
+    <link rel=stylesheet href="https://cdn.jsdelivr.net/gh/u1ui/classless.css/classless.min.css">
+    <link rel=stylesheet href="https://cdn.jsdelivr.net/gh/u1ui/classless.css/more.min.css">
+    <link rel=stylesheet href="https://cdn.jsdelivr.net/gh/u1ui/classless.css/aria.min.css">
+    <link rel=stylesheet href="https://cdn.jsdelivr.net/gh/u1ui/classless.css/simple.min.css">
+
+
+    <script src="https://cdn.jsdelivr.net/gh/nuxodin/cleanup.js@1.1.0/mod.min.js"></script>
+
+    <link rel=stylesheet href="../typewriter.css">
+    <script src="../typewriter.js" type=module></script>
+
+</head>
+
+<body>
+
+    <header>
+        <h1>u1-typewriter</h1>
+    </header>
+
+    <section>
+        <h2>Test Simple text (attribute autoplay, loop)</h2>
+        <u1-typewriter autoplay loop>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</u1-typewriter>
+
+        <h2>Test formated Text</h2>
+        <u1-typewriter autoplay loop>
+                Lorem <b>ips<i>um</i></b> dolor<br> sit <i>amet</i>, consectetur <a href="#">adipiscing</a> elit.
+        </u1-typewriter>
+
+        <h2>Attribute autoplay</h2>
+        <p>start / stops when visible / hidden</p>
+        <div style="overflow:auto; height:100px; padding-top:100px">
+            <u1-typewriter autoplay loop>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</u1-typewriter>
+        </div>
+
+        <h2>API</h2>
+        <button onclick="tw1.play()">play()</button>
+        <button onclick="tw1.pause()">pause()</button>
+        <button onclick="tw1.reset()">reset()</button>
+        <br>
+        <u1-typewriter id=tw1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</u1-typewriter>
+
+
+    </section>
