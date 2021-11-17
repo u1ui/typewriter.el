@@ -77,7 +77,7 @@ class Typewriter extends HTMLElement {
         if (!next) {
             return false;
         }
-        next.prepend(this.caretElement)
+        next.append(this.caretElement)
         return this.activeChar = next;
     }
     reset(){
@@ -85,7 +85,7 @@ class Typewriter extends HTMLElement {
         this.querySelectorAll('.-Symbol').forEach(char => char.classList.remove('-Active'));
         let next = findNextChar(this, this);
         this.activeChar = next;
-        next.prepend(this.caretElement)
+        next.append(this.caretElement)
     }
 
 }
