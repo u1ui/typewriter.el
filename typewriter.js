@@ -54,11 +54,15 @@ class Typewriter extends HTMLElement {
         this.reset();
     }
 
-    play() {
+    play(){
         this.pause();
+        this.dispatchEvent(new CustomEvent('u1-typewriter-play', {bubbles:true}));
+        this._playNext();
+    }
+    _playNext() {
         const speed = getComputedStyle(this).getPropertyValue('--u1-typewriter-speed') || 60;
         this.playInterval = setTimeout(() => {
-            this.play();
+            this._playNext();
         }, speed);
         if (this.next() === false) {
             this.pause();
@@ -72,6 +76,7 @@ class Typewriter extends HTMLElement {
         }
     }
     pause() {
+        this.dispatchEvent(new CustomEvent('u1-typewriter-pause', {bubbles:true}));
         clearInterval(this.playInterval);
     }
     next() {
@@ -111,8 +116,6 @@ function findNextChar(root, node) {
             if (next) break;
         }
     }
-    //if (!next) return null; // not needed?
-
     if (next.classList.contains('-Symbol')) {
         return next;
     } else {
@@ -138,3 +141,23 @@ function separateChars(parent) {
         }
     }
 }
+
+
+
+/* audio-extension */
+
+document.addEventListener('u1-typewriter-play', (e)=>{
+    const el = e.target;
+    if (!el.hasAttribute('audio')) return;
+    if (!el.audioObj) {
+        el.audioObj = new Audio();
+        el.audioObj.loop = true;
+        el.audioObj.volume = 0.3;
+    }
+    el.audioObj.src = el.getAttribute('src') || import.meta.url + '/../typewriter.mp3';
+    el.audioObj.play();
+});
+document.addEventListener('u1-typewriter-pause', e=>{
+    const el = e.target;
+    el.audioObj && el.audioObj.pause();
+})

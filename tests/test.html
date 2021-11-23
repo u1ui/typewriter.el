@@ -11,11 +11,15 @@
     <link rel=stylesheet href="https://cdn.jsdelivr.net/gh/u1ui/classless.css/aria.min.css">
     <link rel=stylesheet href="https://cdn.jsdelivr.net/gh/u1ui/classless.css/simple.min.css">
 
-
     <script src="https://cdn.jsdelivr.net/gh/nuxodin/cleanup.js@1.1.0/mod.min.js"></script>
 
     <link rel=stylesheet href="../typewriter.css">
     <script src="../typewriter.js" type=module></script>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 
 </head>
 
@@ -41,7 +45,7 @@
         <button onclick="tw1.pause()">pause()</button>
         <button onclick="tw1.reset()">reset()</button>
         <br>
-        <u1-typewriter id=tw1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</u1-typewriter>
+        <u1-typewriter id=tw1 audio style="font-family:'Special Elite'">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</u1-typewriter>
         <script>
             tw1.addEventListener('u1-typewriter-end', () => {
                 alert('event "u1-typewriter-end" fired');

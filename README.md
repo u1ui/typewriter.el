@@ -27,3 +27,7 @@ u1-typewriter .-Char { ... } /* the char */
 u1-typewriter .-Active .-Char { ... } /* the active char */
 u1-typewriter .-Caret { ... } /* the caret (It moves and is in the active char element) */
 ```
+
+## Demo
+https://raw.githack.com/u1ui/typewriter.el/main/tests/test.html  
+
