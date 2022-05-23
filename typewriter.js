@@ -53,6 +53,9 @@ class Typewriter extends HTMLElement {
     connectedCallback() {
         this.reset();
     }
+    disconnectedCallback() {
+        this.pause();
+    }
 
     play(){
         this.pause();
