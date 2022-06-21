@@ -1,41 +1,6 @@
 # &lt;u1-typewriter&gt; - element
 Simple typewriter element
 
-## ussage
-
-```html
-<u1-typewriter autostart loop>
-    Even <i>HTML</i> <u>content</u>
-</u1-typewriter>
-```
-
-## attributes
-
-- `autostart`: starts if in viewport, stops if out of viewport  
-- `loop`: restarts if at end
-
-## api
-
-- element.play()
-- element.pause()
-- element.reset()
-- event "u1-typewriter-end"
-
-## CSS
-
-There no default CSS that will affect your styles.
-
-```css
-u1-typewriter .-Char { ... } /* the char */
-u1-typewriter .-Active .-Char { ... } /* the active char */
-u1-typewriter .-Caret { ... } /* the caret (It moves and is in the active char element) */
-```
-
-## Demos
-
-https://raw.githack.com/u1ui/typewriter.el/main/tests/minimal.html  
-https://raw.githack.com/u1ui/typewriter.el/main/tests/test.html
-
 ## Ussage
 
 ```html
@@ -45,6 +10,31 @@ https://raw.githack.com/u1ui/typewriter.el/main/tests/test.html
 </u1-typewriter>
 ```
 
+## API
+
+### Attributes
+
+- `autostart`: starts if in viewport, stops if out of viewport  
+- `loop`: restarts if at end
+- `audio`: plays audio="writer.mp3". If not attribute-value, a default audio is used.
+
+### Javascript
+
+- element.play()
+- element.pause()
+- element.reset()
+- event "u1-typewriter-end"
+
+### CSS
+
+There no default CSS that will affect your styles.
+
+```css
+u1-typewriter .-Char { ... } /* the char */
+u1-typewriter .-Active .-Char { ... } /* the active char */
+u1-typewriter .-Caret { ... } /* the caret (It moves and is in the active char element) */
+```
+
 ## Install
 
 ```html
@@ -52,10 +42,18 @@ https://raw.githack.com/u1ui/typewriter.el/main/tests/test.html
 <script src="https://cdn.jsdelivr.net/gh/u1ui/typewriter.el@3.0.0/typewriter.min.js" type=module>
 ```
 
-## Demo
+## Demos
 
-https://raw.githack.com/u1ui/typewriter.el/main/tests/minimal.html  
-https://raw.githack.com/u1ui/typewriter.el/main/tests/test.html  
+[minimal.html](https://raw.githack.com/u1ui/typewriter.el/main/tests/minimal.html)  
+[test.html](https://raw.githack.com/u1ui/typewriter.el/main/tests/test.html)  
+
+## ussage
+
+```html
+<u1-typewriter autostart loop audio>
+    Even <i>HTML</i> <u>content</u>
+</u1-typewriter>
+```
 
 ## About
 
