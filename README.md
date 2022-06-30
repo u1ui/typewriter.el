@@ -10,6 +10,15 @@ Simple typewriter element
 </u1-typewriter>
 ```
 
+```css
+u1-typewriter {
+    --u1-typewriter-speed:100;
+}
+u1-typewriter h2 .-Caret {
+    color:hotpink;
+}
+```
+
 ## API
 
 ### Attributes
@@ -44,8 +53,8 @@ u1-typewriter .-Caret { ... } /* the caret (It moves and is in the active char e
 
 ## Demos
 
-[minimal.html](https://raw.githack.com/u1ui/typewriter.el/main/tests/minimal.html)  
-[test.html](https://raw.githack.com/u1ui/typewriter.el/main/tests/test.html)  
+[minimal.html](http://gcdn.li/u1ui/typewriter.el@main/tests/minimal.html)  
+[test.html](http://gcdn.li/u1ui/typewriter.el@main/tests/test.html)  
 
 ## ussage
 
