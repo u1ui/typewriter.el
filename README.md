@@ -47,8 +47,8 @@ u1-typewriter .-Caret { ... } /* the caret (It moves and is in the active char e
 ## Install
 
 ```html
-<link href="https://cdn.jsdelivr.net/gh/u1ui/typewriter.el@3.0.0/typewriter.min.css" rel=stylesheet>
-<script src="https://cdn.jsdelivr.net/gh/u1ui/typewriter.el@3.0.0/typewriter.min.js" type=module>
+<link href="https://cdn.jsdelivr.net/gh/u1ui/typewriter.el@x.x.x/typewriter.min.css" rel=stylesheet>
+<script src="https://cdn.jsdelivr.net/gh/u1ui/typewriter.el@x.x.x/typewriter.min.js" type=module>
 ```
 
 ## Demos
